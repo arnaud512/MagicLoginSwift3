@@ -12,16 +12,63 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        
+        var mainViewController: UIViewController
+        if isLoggedIn() {
+            mainViewController = getHomeViewController()
+        } else {
+            mainViewController = LoginViewController()
+        }
+        
+        window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = MainViewController()
-        
         return true
+    }
+    
+    fileprivate func isLoggedIn() -> Bool {
+        return UserDefaults.standard.isLoggedIn()
+    }
+    
+    func getHomeViewController() -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
+    }
+    
+    enum changeRootAnnimation {
+        case scale
+        case translate
+    }
+    
+    func changeRootViewController(_ viewController: UIViewController, withAnnimation annimation: changeRootAnnimation) {
+        // https://gist.github.com/gimenete/53704124583b5df3b407
+        if self.window!.rootViewController == nil {
+            self.window!.rootViewController! = viewController
+            return
+        }
+        let snapShot = self.window!.snapshotView(afterScreenUpdates: true)
+        viewController.view.addSubview(snapShot!)
+        self.window!.rootViewController! = viewController
+        switch annimation {
+        case .scale:
+            UIView.animate(withDuration: 0.5, animations: {() -> Void in
+                snapShot?.layer.opacity = 0
+                snapShot?.layer.transform = CATransform3DMakeScale(1.5, 1.5, 1.5)
+            }, completion: {(_ finished: Bool) -> Void in
+                snapShot?.removeFromSuperview()
+            })
+        case .translate:
+            UIView.animate(withDuration: 0.5, animations: {() -> Void in
+                snapShot?.layer.transform = CATransform3DTranslate(CATransform3DIdentity, 0, (self.window?.bounds.height)!, 0)
+            }, completion: {(_ finished: Bool) -> Void in
+                snapShot?.removeFromSuperview()
+            })
+        }
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

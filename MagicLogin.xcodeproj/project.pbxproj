@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		51250D0E1DC0D150008D3F77 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51250D0D1DC0D150008D3F77 /* MainNavigationViewController.swift */; };
 		51250D101DC0D2D7008D3F77 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51250D0F1DC0D2D7008D3F77 /* HomeViewController.swift */; };
 		514B9F5A1DBD4536000743B2 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514B9F591DBD4536000743B2 /* LoginCell.swift */; };
 		51AA57D01DB239D60004F72C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AA57CF1DB239D60004F72C /* AppDelegate.swift */; };
@@ -18,10 +17,10 @@
 		51AA57E41DB29B6B0004F72C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51AA57E31DB29B6B0004F72C /* Assets.xcassets */; };
 		51AA57E61DB29F0B0004F72C /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AA57E51DB29F0B0004F72C /* Page.swift */; };
 		51AA57E81DB3734B0004F72C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AA57E71DB3734B0004F72C /* Extensions.swift */; };
+		51DD8A661DC3A57C00E30363 /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DD8A651DC3A57C00E30363 /* UserDefaults+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		51250D0D1DC0D150008D3F77 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		51250D0F1DC0D2D7008D3F77 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		514B9F591DBD4536000743B2 /* LoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
 		51AA57CC1DB239D60004F72C /* MagicLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +33,7 @@
 		51AA57E31DB29B6B0004F72C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51AA57E51DB29F0B0004F72C /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		51AA57E71DB3734B0004F72C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		51DD8A651DC3A57C00E30363 /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				51AA57CF1DB239D60004F72C /* AppDelegate.swift */,
-				51250D0D1DC0D150008D3F77 /* MainNavigationViewController.swift */,
 				51AA57D11DB239D60004F72C /* LoginViewController.swift */,
 				51250D0F1DC0D2D7008D3F77 /* HomeViewController.swift */,
 				51AA57E11DB255CD0004F72C /* PageCell.swift */,
@@ -78,6 +77,7 @@
 				51AA57D81DB239D60004F72C /* LaunchScreen.storyboard */,
 				51AA57DB1DB239D60004F72C /* Info.plist */,
 				51AA57E71DB3734B0004F72C /* Extensions.swift */,
+				51DD8A651DC3A57C00E30363 /* UserDefaults+Helpers.swift */,
 			);
 			path = MagicLogin;
 			sourceTree = "<group>";
@@ -155,12 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51250D0E1DC0D150008D3F77 /* MainNavigationViewController.swift in Sources */,
 				51AA57E81DB3734B0004F72C /* Extensions.swift in Sources */,
 				51AA57D21DB239D60004F72C /* LoginViewController.swift in Sources */,
 				51250D101DC0D2D7008D3F77 /* HomeViewController.swift in Sources */,
 				51AA57D01DB239D60004F72C /* AppDelegate.swift in Sources */,
 				51AA57E61DB29F0B0004F72C /* Page.swift in Sources */,
+				51DD8A661DC3A57C00E30363 /* UserDefaults+Helpers.swift in Sources */,
 				51AA57E21DB255CD0004F72C /* PageCell.swift in Sources */,
 				514B9F5A1DBD4536000743B2 /* LoginCell.swift in Sources */,
 			);

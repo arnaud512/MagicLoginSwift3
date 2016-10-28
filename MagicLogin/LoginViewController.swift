@@ -23,6 +23,7 @@ class LoginViewController: UIViewController, UICollectionViewDataSource, UIColle
         cv.dataSource = self
         cv.delegate = self
         cv.isPagingEnabled = true
+        cv.showsHorizontalScrollIndicator = false
         return cv
     }()
     
@@ -183,12 +184,9 @@ class LoginViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     func finishLogginIn() {
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        guard let mainViewController = rootViewController as? MainViewController else {
-            return
-        }
-        mainViewController.showHomeController()
-        dismiss(animated: true, completion: nil)
+        UserDefaults.standard.setIsLoggedIn(true)
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.changeRootViewController(delegate.getHomeViewController(), withAnnimation: .scale)
     }
     
 }
