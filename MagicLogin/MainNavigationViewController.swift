@@ -8,18 +8,17 @@
 
 import UIKit
 
-class MainNavigationViewController: UIViewController {
+class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         if isLoggedIn() {
-            perform(#selector(showHomeController), with: nil, afterDelay: 0.01)
+            showHomeController()
         } else {
             perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
         }
-        
     }
     
     fileprivate func isLoggedIn() -> Bool {
@@ -28,8 +27,8 @@ class MainNavigationViewController: UIViewController {
     
     func showHomeController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let HomeNavigationController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController") as! UINavigationController
-        present(HomeNavigationController, animated: false, completion: nil)
+        let homeNavigationController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController") as! UINavigationController
+        UIApplication.shared.keyWindow?.rootViewController = homeNavigationController
     }
     
     func showLoginController() {

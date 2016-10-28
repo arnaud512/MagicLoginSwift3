@@ -8,7 +8,11 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+protocol LoginViewControllerDelegate: class {
+    func finishLogginIn()
+}
+
+class LoginViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, LoginViewControllerDelegate {
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -154,7 +158,8 @@ class LoginViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == pages.count {
-            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath)
+            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath) as! LoginCell
+            loginCell.loginDelegate = self
             return loginCell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PageCell
@@ -175,6 +180,15 @@ class LoginViewController: UIViewController, UICollectionViewDataSource, UIColle
         DispatchQueue.main.async {
             self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
+    }
+    
+    func finishLogginIn() {
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        guard let mainViewController = rootViewController as? MainViewController else {
+            return
+        }
+        mainViewController.showHomeController()
+        dismiss(animated: true, completion: nil)
     }
     
 }
