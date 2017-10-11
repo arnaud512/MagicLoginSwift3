@@ -60,12 +60,12 @@ class LoginViewController: UIViewController, UICollectionViewDataSource, UIColle
         return button
     }()
     
-    func skipToEnd() {
+    @objc func skipToEnd() {
         pageControl.currentPage = pages.count - 1
         nextPage()
     }
     
-    func nextPage() {
+    @objc func nextPage() {
         guard pageControl.currentPage < pages.count else {
             return
         }

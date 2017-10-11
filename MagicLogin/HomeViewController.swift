@@ -23,7 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
     }
     
-    func handleSignOut() {
+    @objc func handleSignOut() {
         UserDefaults.standard.setIsLoggedIn(true)
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.changeRootViewController(LoginViewController(), withAnnimation: .translate)
