@@ -47,7 +47,7 @@ class LoginCell: UICollectionViewCell {
     }()
     
     weak var loginDelegate: LoginViewControllerDelegate?
-    func handleLogin() {
+    @objc func handleLogin() {
         loginDelegate?.finishLogginIn()
     }
     
